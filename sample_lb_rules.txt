@@ -1,0 +1,5 @@
+{"rules":[
+{"header_match":{"eth_type":"ipv4", "ip_proto":"tcp", "ipv4_dst":"10.0.0.10", "tcp_dst":80}, "payload_match":{"patterns":[{"string":"GET /images/", "from":0, "to":1}]}, "actions":[{"type":"output", "out_port":1},{"type":"rewrite_header","fields":[["ipv4_dst","10.0.0.20"]]]},
+{"header_match":{"eth_type":"ipv4", "ip_proto":"tcp", "ipv4_dst":"10.0.0.10", "tcp_dst":80}, "payload_match":{"patterns":[{"string":"GET /news/", "from":0, "to":1}]}, "actions":[{"type":"output", "out_port":2},{"type":"rewrite_header","fields":[["ipv4_dst","10.0.0.30"]]]},
+{"header_match":{"eth_type":"ipv4", "ip_proto":"tcp", "ipv4_dst":"10.0.0.10", "tcp_dst":80}, "payload_match":{"patterns":[{"regex":"GET /[^(images|news)]", "from":0, "to":1}]}, "actions":[{"type":"output", "out_port":3},{"type":"rewrite_header","fields":[["ipv4_dst","10.0.0.40"]]]}
+]}
