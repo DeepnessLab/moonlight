@@ -1,0 +1,4 @@
+{"rules":[
+{"cookie":1,"priority":"high","header_match":{"in_port":1, "eth_type":"ipv4", "ip_proto":"tcp", "tcp_src":80}, "payload_match":{"patterns":[{"string":"hello", "from":0, "to":50}}], "actions":["alert","log",{"type":"output","out_port":2}]},
+{"header_match":{"in_port":1, "eth_type":"ipv4", "ip_proto":"tcp", "tcp_src":22}, "payload_match":{"patterns":[{"regex":"hello.*bye", "from":10}}], "actions":["alert","drop"]}
+]}
